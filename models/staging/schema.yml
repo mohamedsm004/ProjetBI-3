@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: internal_data 
+    database: banque_db
+    schema: raw        
+    tables:
+      - name: raw_transactions
