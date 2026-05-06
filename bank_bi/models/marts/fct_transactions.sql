@@ -1,9 +1,8 @@
 SELECT
+    transaction_id,
     customer_id,  
-    branch_id,    
-    transaction_date,
-    sum(transaction_amount) as turnover,
-    avg(transaction_amount) as avg_trans,
-    AVG(account_balance) AS solde_moyen,
-    count(transaction_id) as volume
+    branch_id,
+    transaction_date as date_id,
+    transaction_type,
+    transaction_amount
 FROM {{ ref('stg_banking_data') }}
