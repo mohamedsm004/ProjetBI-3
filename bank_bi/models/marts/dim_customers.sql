@@ -7,7 +7,7 @@ SELECT distinct
     "address",
     city,
     contact_number,
-    email_address,
+    email,
     account_type,
     account_balance,
     date_of_account_opening,
