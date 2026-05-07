@@ -4,5 +4,6 @@ SELECT
     branch_id,
     transaction_date as date_id,
     transaction_type,
-    transaction_amount
+    transaction_amount,
+    anomaly
 FROM {{ ref('stg_banking_data') }}
