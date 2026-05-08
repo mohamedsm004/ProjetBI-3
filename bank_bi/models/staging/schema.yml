@@ -5,3 +5,4 @@ sources:
     schema: raw
     tables:
       - name: raw_transactions
+      - name : stg_communities
