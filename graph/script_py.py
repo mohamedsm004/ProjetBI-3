@@ -5,7 +5,7 @@ import pandas as pd
 
 uri = "bolt://localhost:7687"
 user = "neo4j"
-password = "password" # Remplace par ton mot de passe
+password = "password"
 driver = GraphDatabase.driver(uri, auth=(user, password))
 
 def fetch_relationships(tx):
@@ -43,6 +43,3 @@ for node, community_id in partition.items():
 
 df = pd.DataFrame(customer_data)
 df.to_csv("customer_communities.csv", index=False)
-
-print(f"Analyse terminée. {len(df)} clients classés dans {len(df['community_id'].unique())} communautés.")
-driver.close()
