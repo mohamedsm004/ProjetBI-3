@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table'
+) }}
+
 SELECT DISTINCT
     transaction_date AS date_id,
     transaction_date,

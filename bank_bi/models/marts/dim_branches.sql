@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table'
+) }}
+
 select distinct
     branch_id,
     branch_name

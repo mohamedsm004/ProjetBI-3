@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table'
+) }}
+
 SELECT
     transaction_id,
     customer_id,  

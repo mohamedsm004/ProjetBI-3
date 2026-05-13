@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table'
+) }}
+
 SELECT distinct
     customer_id,
     first_name,
