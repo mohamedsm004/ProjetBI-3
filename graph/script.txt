@@ -19,7 +19,6 @@ LOAD CSV WITH HEADERS FROM 'file:///data-2.csv' AS row
 MATCH (c:Customer {id: toInteger(row.customer_id)})
 MATCH (b:Branch {id: toInteger(row.branch_id)})
 
-// Création du noeud Transaction
 CREATE (t:Transaction {
     id: toInteger(row.transaction_id),
     amount: toFloat(row.transaction_amount),
@@ -27,10 +26,8 @@ CREATE (t:Transaction {
     isAnomaly: toInteger(row.anomaly)
 })
 
-// Liaison Transaction -> Branche (pour savoir où elle a eu lieu)
 CREATE (t)-[:OCCURRED_AT]->(b)
 
-// Liaisons spécifiques selon le type de transaction
 FOREACH (_ IN CASE WHEN row.transaction_type = 'Withdrawal' THEN [1] ELSE [] END |
     CREATE (c)-[:MADE_WITHDRAWAL]->(t))
 FOREACH (_ IN CASE WHEN row.transaction_type = 'Deposit' THEN [1] ELSE [] END |
@@ -41,9 +38,7 @@ FOREACH (_ IN CASE WHEN row.transaction_type = 'Transfer' THEN [1] ELSE [] END |
 
 LOAD CSV WITH HEADERS FROM 'file:///data-2.csv' AS row
 MATCH (c:Customer {id: toInteger(row.customer_id)})
-// On crée un seul noeud par type de prêt (ex: "Mortgage")
 MERGE (lt:LoanType {name: row.loan_type})
-// On lie le client au type, et on met les détails du prêt sur le lien
 CREATE (c)-[:BORROWED {
     loan_id: toInteger(row.loan_id),
     amount: toFloat(row.loan_amount),
