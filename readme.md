@@ -13,7 +13,7 @@ Ce projet propose une plateforme décisionnelle de Business Intelligence (BI) de
 Le projet est modulaire et structuré de la manière suivante :
 
 ```text
-├── .github/workflows/        # Pipeline CI/CD (GitHub Actions)
+├── .github/workflows/        # Pipeline CI/CD (GitHub Action)
 ├── bank_bi/                  # Projet dbt (Nettoyage, staging et modèles de Data Warehouse)
 │   ├── models/
 │   │   ├── staging/          # Vues de nettoyage et sources (schema.yml)
