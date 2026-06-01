@@ -1,7 +1,6 @@
 
 # Banking Analytics & Business Intelligence Platform
 
-[![Data Pipeline CI](https://github.com/mohamedsm004/ProjetBI-3/actions/workflows/ci.yml/badge.svg)](https://github.com/mohamedsm004/ProjetBI-3/actions)
 [![Data Stack](https://img.shields.io/badge/Stack-PostgreSQL%20%7C%20dbt%20%7C%20Neo4j%20%7C%20Power%20BI-blue)](#)
 
 ## 📝 Description du Projet
