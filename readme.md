@@ -6,6 +6,8 @@
 ## 📝 Description du Projet
 Ce projet propose une plateforme décisionnelle de Business Intelligence (BI) de bout en bout dédiée au secteur bancaire. L'objectif est d'ingérer des flux de transactions brutes, de structurer un entrepôt de données centralisé, d'appliquer une analyse de réseaux (graphes) pour segmenter la clientèle en communautés, de détecter les risques de fraude et de propulser un moteur de recommandation de produits dynamique.
 
+> 💾 **Source des données :** Le dataset brut initial utilisé pour alimenter ce projet provient du dépôt public [Banking-Dataset par ahsan084](https://github.com/ahsan084/Banking-Dataset).
+
 ---
 
 ## 🏗️ Architecture et Structure du Dépôt
@@ -32,11 +34,12 @@ Le projet est modulaire et structuré de la manière suivante :
 Le flux de traitement de la donnée respecte rigoureusement les étapes suivantes :
 
 1. **Ingestion brute :** Chargement des fichiers du dossier `raw_data/` dans des tables de stockage temporaires au sein d'une base de données **PostgreSQL**.
-2. **Transformation dbt :** Nettoyage des types de données, gestion des valeurs manquantes et préparation des tables de staging dans le dossier `bank_bi/`.
-3. **Analyse de Graphes (Neo4j) :** Exportation des données nettoyées vers **Neo4j** pour modéliser les clients et leurs interactions. Exécution du script Python (`graph/`) appliquant l'**Algorithme de Louvain** pour calculer l'index de modularité et segmenter les clients en communautés homogènes.
-4. **Vue des Communautés :** Les ID de communautés générés par l'algorithme sont réimportés dans PostgreSQL à travers une vue de table spécifique (`stg_communities`) directement jointe à la dimension finale des clients (`dim_customers`).
-5. **Scellage relationnel (pgAdmin) :** Exécution des scripts du dossier `fichier_sql/` depuis l'interface **pgAdmin** pour appliquer physiquement les contraintes de clés primaires (PK) et clés étrangères (FK) afin de sceller le Schéma en Étoile (relations 1:N).
-6. **Restitution Power BI :** Importation du modèle physique dans **Power BI Desktop** pour la construction d'un dashboard décisionnel interactif sur deux pages.
+   
+3. **Transformation dbt :** Nettoyage des types de données, gestion des valeurs manquantes et préparation des tables de staging dans le dossier `bank_bi/`.
+4. **Analyse de Graphes (Neo4j) :** Exportation des données nettoyées vers **Neo4j** pour modéliser les clients et leurs interactions. Exécution du script Python (`graph/`) appliquant l'**Algorithme de Louvain** pour calculer l'index de modularité et segmenter les clients en communautés homogènes.
+5. **Vue des Communautés :** Les ID de communautés générés par l'algorithme sont réimportés dans PostgreSQL à travers une vue de table spécifique (`stg_communities`) directement jointe à la dimension finale des clients (`dim_customers`).
+6. **Scellage relationnel (pgAdmin) :** Exécution des scripts du dossier `fichier_sql/` depuis l'interface **pgAdmin** pour appliquer physiquement les contraintes de clés primaires (PK) et clés étrangères (FK) afin de sceller le Schéma en Étoile (relations 1:N).
+7. **Restitution Power BI :** Importation du modèle physique dans **Power BI Desktop** pour la construction d'un dashboard décisionnel interactif sur deux pages.
 
 ---
 
