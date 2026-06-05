@@ -124,5 +124,8 @@ dbt test
 4. **Visualiser :** Ouvrir le rapport dans **Power BI**, actualiser les données pour charger le schéma en étoile interconnecté, et utiliser les filtres synchronisés sur les deux pages d'analyse.
 
 ---
+## 👥 Équipe
+SMAOUI MOHAMED 
+AMARA YASSINE
 
 *Projet académique réalisé dans le cadre de la filière Business Intelligence (2026).*
