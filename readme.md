@@ -128,4 +128,4 @@ dbt test
 SMAOUI MOHAMED 
 AMARA YASSINE
 
-*Projet académique réalisé dans le cadre de la filière Business Intelligence (2026).*
+*Projet académique réalisé dans le cadre du module BI (2026).*
